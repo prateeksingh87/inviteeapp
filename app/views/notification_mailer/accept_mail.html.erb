@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Your Referal code , <%= @invitie.referal_code %></h3>
+    <p>
+      To login to the site, just follow this link:
+    </p>
+
+    <%= link_to 'Sigin up', new_user_registration_url(referal_code: @invitie.referal_code) %>
+    <%= link_to 'Sigin In', new_user_session_url %>
+
+
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+        

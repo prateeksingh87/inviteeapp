@@ -1,0 +1,24 @@
+<%= form_with(model: invite) do |form| %>
+  <% if invite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(invite.errors.count, "error") %> prohibited this invite from being saved:</h2>
+
+      <ul>
+        <% invite.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="jumbotron" style="background-color:grey">
+    <div class="field form-group">
+      <%= form.label :referal_email %>
+      <%= form.text_field :address, class:"form-control", required: true %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class:"btn btn-warning"%>
+    </div>
+  </div>
+<% end %>

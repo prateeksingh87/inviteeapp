@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<br>
+<h4>Invities Referal Email Address </h4>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr style="text-align:center">
+      <th>Address</th>
+      <th>Status</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <% @invites.each do |invite| %>
+      <tr style="text-align:center">
+        <td><%= invite.address %></td>
+        <td> <%= current_user.invites.last.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'New invite', new_invite_path, class:"btn btn-info" %>

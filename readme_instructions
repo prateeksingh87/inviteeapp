@@ -1,0 +1,104 @@
+For Running this project we need to do following things which is showing below.
+==================================================
+just go to your project directory, then
+1) rvm use 2.6.5
+2) bundle install
+3) rails db:create    //if needed 
+4) rails db:migrate
+5) rails s    // For running your server
+6) Hit this url "http://localhost:3000/users/sign_in" in your browser
+=======================================================
+
+After signup you can send referal email to non-user 
+through "http://localhost:3000/invites/new"
+
+=====================================================
+For signup/signin Api use postman and use post method for both. 
+
+1) Sign up user url "http://localhost:3000/api/v1/users/signup"  , method post
+
+{
+	"user": {
+		"first_name": "test",
+		"last_name": "user",
+		"email": "test@gmail.com",
+		"password": "123456",
+		"password_confirmation": "123456"
+	}
+}
+
+and insert this json data on your body in postman 'use json format and enter data which is showing above'
+
+after clicking send button the json reponse come .
+
+response
+
+{
+    "user": {
+        "id": 5,
+        "email": "test@gmail.com",
+        "created_at": "2021-12-17T05:20:48.819Z",
+        "updated_at": "2021-12-17T05:20:48.819Z",
+        "auth_token": "BoxSvFg_WFFPucMi5L9p",
+        "first_name": "user",
+        "last_name": "test"
+    }
+}
+
+
+========================================================
+
+2) For Sign in APi , set auth token on header which was already genrated at the time of signup
+
+you need to set auth_token on postman header
+something like this
+
+======================================
+Authorization   KbWBzn6wzVHkAxAKxsd7
+=====================================
+
+where "KbWBzn6wzVHkAxAKxsd7" is an auth token 
+
+{
+    "email": "test@gmail.com",
+    "password": "123456"
+}
+
+
+response 
+
+{
+    "user": {
+        "id": 5,
+        "email": "test@gmail.com",
+        "created_at": "2021-12-17T05:20:48.819Z",
+        "updated_at": "2021-12-17T05:20:48.819Z",
+        "auth_token": "BoxSvFg_WFFPucMi5L9p",
+        "first_name": "user",
+        "last_name": "test"
+    }
+}
+
+=======================================
+3) you can also send mail to referal non-user invitie
+use post method, http://localhost:3000/api/v1/invites/referal_email
+
+add this data on bosy and click send then json response come
+
+{
+    "address": "invitegmail.com"
+}
+
+====================================================
+response
+
+{
+    "referal_email": "invitegmail.com",
+    "message": "message sent to user"
+}
+
+==================================================
+
+
+Note. For prpoper ouptut you can check screenshots of this project 
+directoy /department/screenshots
